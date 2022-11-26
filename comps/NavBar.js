@@ -12,7 +12,7 @@ const NavBar = () => {
           About
         </a>
         <a href="">Skills</a>
-        <a className="" href="">
+        <a className="mx-2" href="">
           Portfolio
         </a>
         <a href="">Contact</a>
