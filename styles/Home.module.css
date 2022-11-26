@@ -4,14 +4,15 @@
 
 .main {
   min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
+}
+.nav{
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25em 2em;
+  background-color: #7163eb;
+}
 .footer {
   display: flex;
   flex: 1;
