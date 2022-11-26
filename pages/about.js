@@ -13,14 +13,14 @@ export default function About() {
       </Head>
 
       <main className={styles.main}>
-     <div className="flex  p-2 ">
+        <div className="flex  p-2 ">
+          <CountUp />
 
-            <CountUp />
-           
-<DisplayArray1/>
-     </div>
-           
-     
+         
+        </div>
+        <div>
+          <CardWithImg/>
+        </div>
       </main>
     </div>
   );
@@ -95,7 +95,7 @@ function CountUp() {
   return (
     <div className=" flex justify-center flex-col mt-3 rounded-md bg-violet-500 shadow-xl ">
       <div className="flex justify-center">
-        <h1 className="text-black text-4xl p-1" >  {count}  </h1>
+        <h1 className="text-black text-4xl p-1"> {count} </h1>
       </div>
 
       <div className="flex space-x-2 justify-center p-1">
@@ -112,38 +112,31 @@ function CountUp() {
     </div>
   );
 }
-function DisplayArray1(){
+function DisplayArray1() {
   const [arr1] = useState({
-    names:['tung','daniel','tri']
-
-  })
+    title: "Rawr",
+    Description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsum fugit nemo, aliquid distinctio et iure laudantium itaque accusantium alias incidunt ad porro, eveniet modi, ullam aperiam obcaecati dolorem optio totam ratione inventore odio praesentium deserunt. Obcaecati consequatur soluta nam consectetur hic, atque iure corrupti, voluptatem molestiae eum veritatis. Illo, magni qui reiciendis cumque quo amet earum? Adipisci, nobis blanditiis ex ipsam asperiores earum facilis vel sit optio quam molestiae obcaecati, ea vitae aspernatur officiis debitis quas? Velit, consequuntur commodi libero, harum, quibusdam quisquam facere doloremque praesentium beatae perspiciatis debitis temporibus illo. Id et natus sint perspiciatis aliquam qui voluptate.",
+      img:'//thiscatdoesnotexist.com'
+  });
   return (
     <div className="p-2 rounded-md text-black card">
-{arr1.names}
-
+      
+      <div className="">{arr1.title}</div>
+      <div className=""> {arr1.Description}  </div>
     </div>
-  )
+  );
 }
 
 // This gets called on every request
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch('https://bcw-sandbox.herokuapp.com/api/gifts')
-  const data = await res.json()
-  console.log(data);
-
-  // Pass data to the page via props
-  return { props: { data } }
-}
-
 
 function CardWithImg() {
   return (
     <div className="flex justify-center">
-      <div className="rounded-lg shadow-lg bg-white max-w-sm">
+      <div className=" shadow-lg bg-white max-w-xs">
         <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
           <img
-            className="rounded-t-lg"
+            className=""
             src="https://mdbootstrap.com/img/new/standard/nature/182.jpg"
             alt=""
           />
