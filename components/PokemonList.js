@@ -4,10 +4,10 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
 import Script from "next/script.js";
-import HeroSection from "../components/HeroSection.js";
+import HeroSection from "./HeroSection.js";
 
 import Link from "next/link.js";
-import Layout from "../components/Layout.js";
+import Layout from "./Layout.js";
 
 // NOTE  {pokemon} is the props i am passing through when grabbing data from the api
 //NOTE comes in as array
