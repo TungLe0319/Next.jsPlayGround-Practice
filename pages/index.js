@@ -18,6 +18,9 @@ import { RootState } from "../store.js";
 
 export default function Home({ pokemon }) {
 
+React.useEffect(() => {
+  getPokemon();
+});
   // console.log(pokemon);
   return (
     <Layout title="nextJsPokeDex">
@@ -51,7 +54,16 @@ export default function Home({ pokemon }) {
   );
 }
 
-export async function getStaticProps(context) {
+
+export async function getPokemon() {
+  try {
+    let test = await pokemonService.getPokemon();
+    return { props: { test } };
+  } catch (error) {
+    console.log(error);
+  }
+}
+export async function getStaticProps() {
   try {
     const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150");
     const { results } = await res.json();
