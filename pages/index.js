@@ -13,14 +13,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../slices/counterSlice.js";
 import { RootState } from "../store.js";
 
-
-
-
 export default function Home({ pokemon }) {
-
-React.useEffect(() => {
-  getPokemon();
-});
+  React.useEffect(() => {
+    getPokemon();
+  });
   // console.log(pokemon);
   return (
     <Layout title="nextJsPokeDex">
@@ -53,7 +49,6 @@ React.useEffect(() => {
     </Layout>
   );
 }
-
 
 export async function getPokemon() {
   try {
