@@ -6,7 +6,6 @@ import { pokemonService } from "./services/PokemonService.js";
 export default function pokemon({ pokeMan }) {
   // console.log(pokeMan);
 
-
   return (
     <div className="container bg-orange-200 place-content-center   mt-64 py-10  ">
       <div className="text-center">
@@ -57,19 +56,24 @@ export default function pokemon({ pokeMan }) {
 }
 
 
-
-export async function getServerSideProps({ query }) {
-  const id = query.id;
+export async function getPokeStuff({query}){
   try {
-    
-    const res = await  fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    console.log(res);
-    const pokeMan = await res.json();
-    const paddingIndex = (`00` + id).slice(-3);
-    const image = ` https://assets.pokemon.com/assets/cms2/img/pokedex/full/${paddingIndex}.png`;
-    pokeMan.image = image;
-    return { props: { pokeMan } };
-  } catch (error) {
-    console.log(error);
-  }
+      await pokemonService.getPokemonDetails(query)
+    } catch (error) {
+   console.log(error);
+    }
 }
+// export async function getServerSideProps({ query }) {
+//   const id = query.id;
+//   try {
+//     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+//     console.log(res);
+//     const pokeMan = await res.json();
+//     const paddingIndex = (`00` + id).slice(-3);
+//     const image = ` https://assets.pokemon.com/assets/cms2/img/pokedex/full/${paddingIndex}.png`;
+//     pokeMan.image = image;
+//     return { props: { pokeMan } };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
